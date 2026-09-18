@@ -4,5 +4,5 @@ class Service:
         self.cost = cost
         self.duration = duration
 
-        def return_info(self):
-            return f"Услуга: {self.name} | Стоимость: {self.cost} | На {duration}час."
+    def return_info(self):
+        return f"Услуга: {self.name} | Стоимость: {self.cost} | На {self.duration}час."

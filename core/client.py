@@ -4,4 +4,4 @@ class Client():
         self.number = number
 
     def return_info(self):
-        return f"Клиент: {self.name} | Номер: {self.number}."
+        return f"Клиент: {self.name} | Номер: +{self.number}."
