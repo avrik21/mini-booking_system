@@ -74,8 +74,8 @@ def get_date():
         day = check_number(input("День: "))
         month = check_number(input("Месяц: "))
         year = check_number(input("Год: "))
-        hour = check_number(input("Час"))
-        minutes = check_number(input("Минут"))
+        hour = check_number(input("Час: "))
+        minutes = check_number(input("Минут: "))
         if day and month and year:
             break
-    return f"{day:02}:{month:02}:{year:04} | {hour:2}:{minutes:2}"
+    return f"{day:02}:{month:02}:{year:04} | {hour:02}:{minutes:02}"

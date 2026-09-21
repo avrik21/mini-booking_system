@@ -52,8 +52,14 @@ class Ui:
             input_client-1
             )
         system.show_info("services")
-        input_service = ut.input_lst(system.return_len_lst("services"), "Введите номер по списку")
-        service = system.return_object("services", input_service-1)
+        input_service = ut.input_lst(
+            system.return_len_lst("services"),
+            "Введите номер по списку"
+            )
+        service = system.return_object(
+            "services",
+            input_service-1 
+            )
         date = ut.get_date()
         result = system.add_appointment(client, service, date)
         if not result:
@@ -74,14 +80,14 @@ class Ui:
         ut.click_enter()
         return
 
-    def request_find_appoitment(self):
-        name_input = input("Что ищете?(Имя) ")
-        result = system.find_appoitment(name_input)
+    def request_find_appointment(self):
+        name_input = input("Что ищете?(Имя клиента) ")
+        result = system.find_appointment(name_input)
         if not result:
             print("Заявка не найдена!")
             ut.click_enter()
             return
-        print(result)
+        print(result.return_info())
         ut.click_enter()
         return
 

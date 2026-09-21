@@ -27,8 +27,8 @@ class System():
         
         return True
 
-    def add_appoitment(self, client, service, date):
-        for item in self.appoitments:
+    def add_appointment(self, client, service, date):
+        for item in self.appointments:
             if item.client == client and item.service == service:
                 return False
         appointment = Appointment(client, service, date)
@@ -49,22 +49,22 @@ class System():
         return False
 
     def cancel_appointment(self, name_client, name_service):
-        for item in self.appointment:
-            if item.client.name.lowe() == name_client.lower() and item.service.name.lower == name_service.lower():
+        for item in self.appointments:
+            if item.client.name.lower() == name_client.lower() and item.service.name.lower() == name_service.lower():
                 item.status = "Отменено"
                 return True
         return False
 
     def change_status(self, name_client, name_service):
         for item in self.appointments:
-            if item.client == name_client.lower() and item.service == name_service.lower():
+            if item.client.name.lower() == name_client.lower() and item.service.name.lower() == name_service.lower():
                 item.status = "Выполнено"
                 return True
         return False
 
     def income(self):
         result = 0
-        for item in self.appoitments:
+        for item in self.appointments:
             if item.status == "Выполнено":
                 result += item.service.cost
         return result
@@ -89,7 +89,6 @@ class System():
             return len(self.appointments)
 
     def return_object(self, lst, num):
-        print(lst, num)
         if lst == "clients":
             return self.clients[num]
         elif lst == "services":
