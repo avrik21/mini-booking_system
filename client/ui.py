@@ -41,15 +41,21 @@ class Ui:
         print("Выполнено!")
         ut.click_enter()
 
-    def request_add_appoitment(self):
+    def request_add_appointment(self):
         system.show_info("clients")
-        input_client = ut.input_lst(system.return_len_lst("clients"), "Введите номер по списку")
-        client = system.return_object("clients", input_client-2)
+        input_client = ut.input_lst(
+            system.return_len_lst("clients"), 
+            "Введите номер по списку"
+            )
+        client = system.return_object(
+            "clients", 
+            input_client-1
+            )
         system.show_info("services")
         input_service = ut.input_lst(system.return_len_lst("services"), "Введите номер по списку")
         service = system.return_object("services", input_service-1)
         date = ut.get_date()
-        result = system.add_appoitment(client, service, date)
+        result = system.add_appointment(client, service, date)
         if not result:
             print("Такая заявка уже есть")
             ut.click_enter()
@@ -58,8 +64,8 @@ class Ui:
         ut.click_enter()
         return
 
-    def request_show_appoitments(self):
-        result = system.show_appoitments()
+    def request_show_appointments(self):
+        result = system.show_appointments()
         if not result:
             print("Список пуст")
             ut.click_enter()
@@ -79,11 +85,11 @@ class Ui:
         ut.click_enter()
         return
 
-    def request_cancel_appoitment(self):
+    def request_cancel_appointment(self):
         name_input = input("Имя клиента? ")
         name_service = input("Имя услуги? ")
 
-        result = system.cancel_appoitment(name_input, name_service)
+        result = system.cancel_appointment(name_input, name_service)
 
         if not result:
             print("Заказ не найден")

@@ -1,4 +1,4 @@
-class Appointement():
+class Appointment():
     def __init__(self, client, service, date):
         self.client = client
         self.service = service

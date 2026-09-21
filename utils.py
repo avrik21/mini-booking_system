@@ -22,18 +22,16 @@ def input_choice(num):
     while True:
         result = check_number(input("Выберите пункт: "))
         if result:
-            if result >= 0 and result < num:
+            if result >= 0 and result <= num:
                 return result
             print("Необходимо выбрать из списка")
 
 def input_lst(num, message):
     while True:
-        print(1)
         number = check_number(input(f"{message}"))
-        print(2)
-        if number <= 1:
-            print(3)
-            return num
+        if number < 0 or number > num:
+            continue
+        return number
 
 def input_number_tel():
     while True:
@@ -76,6 +74,8 @@ def get_date():
         day = check_number(input("День: "))
         month = check_number(input("Месяц: "))
         year = check_number(input("Год: "))
+        hour = check_number(input("Час"))
+        minutes = check_number(input("Минут"))
         if day and month and year:
             break
-    return f"{day:02}:{month:02}:{year:04}"
+    return f"{day:02}:{month:02}:{year:04} | {hour:2}:{minutes:2}"
