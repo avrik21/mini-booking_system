@@ -18,6 +18,8 @@ while True:
     elif choice == 6:
         use_func(ui.request_cancel_appoitment)
     elif choice == 7:
+        use_func(ui.request_change_status)
+    elif choice == 8:
         use_func(ui.request_income)
     elif choice == 0:
         print("Спасибо за работу!!")
